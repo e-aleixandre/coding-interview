@@ -48,13 +48,30 @@ class Stack {
     }
 }
 
-let stack = new Stack();
+class ArrayBasedStack {
+    constructor() {
+        this.data = [];
+    }
 
-stack.push(3);
-console.log(stack);
-stack.push(5);
-console.log(stack);
-console.log(stack.peek());
-stack.pop();
-stack.push(2);
-console.log(stack);
+    peek() {
+        if (this.isEmpty())
+            return;
+
+        return this.data[this.data.length - 1];
+    }
+
+    push(item) {
+        this.data.push(item);
+    }
+
+    pop() {
+        if (this.isEmpty())
+            return;
+
+        return this.data.pop();
+    }
+
+    isEmpty() {
+        return this.data.length === 0;
+    }
+}
